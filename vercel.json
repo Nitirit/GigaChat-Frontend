@@ -1,6 +1,46 @@
 {
   "rewrites": [
     {
+      "source": "/register",
+      "destination": "$BACKEND_URL/register"
+    },
+    {
+      "source": "/login",
+      "destination": "$BACKEND_URL/login"
+    },
+    {
+      "source": "/logout",
+      "destination": "$BACKEND_URL/logout"
+    },
+    {
+      "source": "/me",
+      "destination": "$BACKEND_URL/me"
+    },
+    {
+      "source": "/profile/:path*",
+      "destination": "$BACKEND_URL/profile/:path*"
+    },
+    {
+      "source": "/friends",
+      "destination": "$BACKEND_URL/friends"
+    },
+    {
+      "source": "/friends/:path*",
+      "destination": "$BACKEND_URL/friends/:path*"
+    },
+    {
+      "source": "/conversations",
+      "destination": "$BACKEND_URL/conversations"
+    },
+    {
+      "source": "/conversations/:path*",
+      "destination": "$BACKEND_URL/conversations/:path*"
+    },
+    {
+      "source": "/ws/:path*",
+      "destination": "$BACKEND_URL/ws/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
@@ -8,14 +48,15 @@
   "headers": [
     {
       "source": "/.env",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     }
   ]
